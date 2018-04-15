@@ -7,7 +7,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
-INSERT INTO `admin` VALUES (1,'dave@gmail.com','password','2014-11-26 06:33:36');
+INSERT INTO `admin` VALUES (1,'david@gmail.com','password','2018-02-26 06:33:36');
 
 CREATE TABLE `booking` (
   `BookingId` varchar(20) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE `booking` (
   KEY `UserId` (`userid`),
   KEY `BusId` (`BusId`),
   CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`BusId`) REFERENCES `bus` (`BusId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 INSERT INTO `booking` VALUES ('booking1','user1','bus1','2018-11-29 18:30:00','19:00:00'),('booking2','user1','bus1','2018-11-29 18:30:00','19:00:00'),('booking3','user1','bus4','2018-12-04 18:30:00','04:45:00');
 
@@ -38,7 +38,7 @@ CREATE TABLE `bus` (
   PRIMARY KEY (`BusId`),
   KEY `OperatorId` (`OperatorId`),
   CONSTRAINT `bus_ibfk_1` FOREIGN KEY (`OperatorId`) REFERENCES `busoperator` (`OperatorId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 INSERT INTO `bus` VALUES ('bus1','Hashem Travels','Chevrolet','12:00:00','19:00:00','alex','Sharm',2100,'busoperator1',50),('bus2','Hashem Travels','Chevrolet','18:00:00','08:00:00','Suez','Cairo',1300,'busoperator1',50),('bus3','Hashem Travels','Chevrolet','06:00:00','16:15:00','Alex','Cairo',650,'busoperator2',56),('bus4','Hashem travels','Chevrolet','21:00:00','04:45:00','Shebin','Suez',2600,'busoperator2',38);
 
@@ -53,7 +53,7 @@ CREATE TABLE `busoperator` (
   `Password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`OperatorId`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 INSERT INTO `busoperator` VALUES ('busoperator1','Ahmed','Alex','Ahmed@gmail.com','alex','908978675','01254522'),('busoperator2','ashraf','Shebin','ashraf@gmail.com','Shebin','9182736451','02481581'),('busoperator3','akram','Cairo','akram@gmail.com','Cairo','8562256252','5550000123'),('busoperator4','Salem','Alex','Salem@gmail.com','Alex','7644112324','0555714000');
 
@@ -71,7 +71,7 @@ CREATE TABLE `payment` (
   KEY `OperatorId` (`OperatorId`),
   CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`BookingId`) REFERENCES `booking` (`BookingId`) ON DELETE CASCADE,
   CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`OperatorId`) REFERENCES `busoperator` (`OperatorId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 INSERT INTO `payment` VALUES ('payment1','booking1',8400,'2018-11-26 09:48:55','busoperator1',4,'NOT PAID'),('payment2','booking2',200,'2018-11-26 09:49:14','busoperator1',2,'NOT PAID'),('payment3','booking3',600,'2018-11-26 09:50:10','busoperator2',1,'NOT PAID');
 
@@ -87,7 +87,7 @@ CREATE TABLE `user` (
   `Password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
 INSERT INTO `user` VALUES ('user1','ahmed','nasser','cairo','cairo','ahmed@gmail.com','9021154414','12345'),('user2','kareem','tawfeek','alex','alex','kareem@gmail.com','9158817142','asdasd'),('user3','mona','ramezy','alex','alex','monaramezy@gmail.com','9090909090','zxczxc'),('user4','akram','elbasha','alex','alex','akram@gmail.com','9243456743','mujju'),('user5','nabil','magdy','alex','alex','nabil@gmail.com','7876571234','nilzpaapa'),('user6','magdy','saad','alex','alex','magdy@gmail.com','8989786786','madhuama');
 
