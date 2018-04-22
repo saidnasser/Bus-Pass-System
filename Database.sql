@@ -1,4 +1,4 @@
-create database BPS
+
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` varchar(40) NOT NULL,
@@ -56,6 +56,18 @@ CREATE TABLE `busoperator` (
 );
 
 INSERT INTO `busoperator` VALUES ('busoperator1','Ahmed','Alex','Ahmed@gmail.com','alex','908978675','01254522'),('busoperator2','ashraf','Shebin','ashraf@gmail.com','Shebin','9182736451','02481581'),('busoperator3','akram','Cairo','akram@gmail.com','Cairo','8562256252','5550000123'),('busoperator4','Salem','Alex','Salem@gmail.com','Alex','7644112324','0555714000');
+CREATE TABLE `seatallocation` (
+  `SeatId` varchar(20) NOT NULL,
+  `BookingId` varchar(20) DEFAULT NULL,
+  `SeatType` varchar(10) DEFAULT NULL,
+  `BusId` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`SeatId`),
+  KEY `BusId` (`BusId`),
+  KEY `BookingId` (`BookingId`),
+  CONSTRAINT `seatallocation_ibfk_1` FOREIGN KEY (`BusId`) REFERENCES `bus` (`BusId`) ON DELETE CASCADE,
+  CONSTRAINT `seatallocation_ibfk_2` FOREIGN KEY (`BookingId`) REFERENCES `booking` (`BookingId`) ON DELETE CASCADE
+);
+INSERT INTO `seatallocation` VALUES ('seatallocation1','booking1',NULL,'bus1'),('seatallocation2','booking1',NULL,'bus1'),('seatallocation3','booking1',NULL,'bus1'),('seatallocation4','booking1',NULL,'bus1'),('seatallocation5','booking2',NULL,'bus1'),('seatallocation6','booking2',NULL,'bus1'),('seatallocation7','booking3',NULL,'bus4');
 
 
 CREATE TABLE `payment` (
