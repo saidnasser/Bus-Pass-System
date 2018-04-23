@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:src="@drawable/greenn"
+    android:scaleType = "centerCrop"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenn"
+    tools:context=".splash">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="123dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/deeeelogo" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/logo11" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powered by Hassan"
+        android:textSize="15dp"
+        android:layout_alignBottom="@+id/imageView11"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+
+        />
+
+</RelativeLayout>
